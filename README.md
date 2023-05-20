@@ -1,1 +1,1 @@
-# ITSS-PracticeModule-Group20
+# Handwritten Chinese Character Guidance System
