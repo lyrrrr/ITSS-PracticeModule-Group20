@@ -211,10 +211,6 @@ def main():
             try:
                 # init_rect = cv2.selectROI(video_name, frame, False, False)
                 # print("init_rect: ",init_rect)
-                # TODO how to get the templete bbox
-                #init_rect = (340, 115, 26, 38)    #pen1
-                #init_rect = (320, 179, 33, 30)   #pen3
-                #init_rect = (314, 40, 53, 40)    #pen4
                 init_rect = (342, 105, 57, 40)  #pen5
             except:
                 exit()
