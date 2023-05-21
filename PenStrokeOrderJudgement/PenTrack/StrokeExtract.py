@@ -96,11 +96,9 @@ def locate_word(penball_traj):
     return (col_min-20, row_min-20, col_max+20, row_max+20)
 
 def stroke_extract(penball_loclist,last_frame):
-    turn_angle_threshold = 110       #pen3 120  #pen4 110
-    gray_threshold = 173      # pen3 160    #pen5 173
-
-    #last_frame = cv2.imread("./demo/frame270.png")  #pen3
-    # last_frame = cv2.imread("./demo/pen5_last2.png")  #pen5
+    turn_angle_threshold = 110      
+    gray_threshold = 173      
+    
     img_gray = cv2.cvtColor(last_frame, cv2.COLOR_BGR2GRAY)
     img_copy = last_frame.copy()
 
@@ -148,14 +146,7 @@ def stroke_extract(penball_loclist,last_frame):
     turnpoints = [darkpoint_uniq[idx+1] for idx, angle in enumerate(gray_angle_list) if angle > turn_angle_threshold]
     #print(turnpoints)
 
-    # print(darkpoint[0:13])
 
-    # turnpoints = [[358, 194], [343, 197], [343, 196], [345, 226], [344, 208], [343, 210],
-    #  [344, 210], [343, 211], [344, 210], [343, 210], [360, 211], [332, 213], 
-    #  [333, 229], [319, 231], [371, 233], [371, 232], [371, 233], [394, 198]]
-    
-    # # TODO 算turnpoint之间距离
-    # # 建立距离list 如果距离大就放入最终list 如果距离小就一直平均位置 直到遇到距离大的
     filtered_turnpoints = []
     filtered_turnpoints.append(turnpoints[0])
     turnpoints_num = len(turnpoints)
@@ -164,7 +155,6 @@ def stroke_extract(penball_loclist,last_frame):
         #sqrt((x2 - x1)**2 + (y2 - y1)**2) 
         dis = sqrt((turnpoints[i-1][0]-turnpoints[i][0])**2+(turnpoints[i-1][1]-turnpoints[i][1])**2)
         if dis < 5.0:
-            # pen3 3.0
             # filtered_turnpoints[-1][0] = round((filtered_turnpoints[-1][0]+turnpoints[i][0])/2.0)
             # filtered_turnpoints[-1][1] = round((filtered_turnpoints[-1][1]+turnpoints[i][1])/2.0)
             pass
