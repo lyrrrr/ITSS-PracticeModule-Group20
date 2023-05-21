@@ -11,6 +11,11 @@ This folder is the code implement of our <u>Pen Grip Posture Classification Modu
 - **PenStrokeOrderJudgement**
 
 This folder is the code implement of our <u>Stroke Extraction Module</u> and <u>Stroke Order Judgement Module</u>. It includes the code for pen tip tracking, pen ballpoint detection, stroke extraction, stroke type identification, chineses character detection and stroke order comparson. The required environment can be installed through the requirements.txt. 
+Add pysot to PYTHONPATH
+
+```
+export PYTHONPATH=/path/to/pysot:$PYTHONPATH
+```
 
 To run the code, execute the following code:
 
